@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+      - name: backend
+        image: 270980086296.dkr.ecr.ap-south-1.amazonaws.com/demoeks:frontend
+        ports:
+        - containerPort: 3000
